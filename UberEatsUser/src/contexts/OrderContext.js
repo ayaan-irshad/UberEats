@@ -48,11 +48,11 @@ const OrderContextProvider = ({ children }) => {
 		return newOrder;
 	};
 
-	// const getOrder = async (id) => {
-	// 	const order = await DataStore.query(Order, id);
-	// 	const orderDishes = await DataStore.query(OrderDish, (od) =>
-	// 		od.orderID("eq", id)
-	// 	);
+	const getOrder = async (id) => {
+		const order = await DataStore.query(Order, id);
+		const orderDishes = await DataStore.query(OrderDish, (od) =>
+			od.orderID("eq", id)
+		);
 
 		return { ...order, dishes: orderDishes };
 	};
